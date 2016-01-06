@@ -2,7 +2,8 @@
 	<p id="notice"><%= notice %></p>
 <% end %>
 
-<h2>Your Cart</h2>
+<% unless cart.line_items.empty? %>
+<div class="cart_title">Your Cart</div>
 <table>
 	<%= render(cart.line_items) %>
 
@@ -12,3 +13,4 @@
 	</tr>
 </table>
 <%= button_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Are you sure'} %>
+<% end %>
