@@ -1,0 +1,27 @@
+- if @cart.line_items.empty?
+
+
+
+
+h3
+  = t('.title_html')
+- cache ['store', Product.latest] do
+  - @products.each do |product|
+    - cache ['entry', product] do
+      .callout
+        .row
+          .large-3.columns
+            = image_tag(product.image_url)
+          .large-9.columns
+            .column.row
+                h5 = product.title
+            .column.row  
+              = sanitize(product.description)
+            .column.row
+              span.price
+                = number_to_currency(product.price)
+            = form_for @line_item, url: line_items_path(product_id: product) do |f|
+              = f.select :quantity, options_for_select([1,2,3])
+              = f.submit "Add to Cart", class: "tiny button"
+
+

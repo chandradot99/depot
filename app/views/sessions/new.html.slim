@@ -1,0 +1,11 @@
+= form_tag do
+  .row
+    fieldset.large-6.columns.fieldset
+      legend
+        h4 Log In
+
+      = text_field_tag :name, params[:name], placeholder: "Enter Name"
+      br 
+      = password_field_tag :password, placeholder: "Enter Password"
+      br
+      = submit_tag "Login", class: "success small button"

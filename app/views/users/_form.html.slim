@@ -1,0 +1,22 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@user.errors.count, "error")
+        |  prohibited this user from being saved:
+      ul
+        - @user.errors.full_messages.each do |message|
+          li
+            = message
+  
+  .row
+    fieldset.large-6.columns.fieldset
+      legend
+         h4 Sign up
+
+      = f.text_field :name, placeholder: "Enter Name" 
+      br
+      = f.password_field :password, placeholder: "Enter Password"
+      br
+      = f.password_field :password_confirmation, placeholder: "Confirm Password"
+      = f.submit "Signup", class: "success small button"

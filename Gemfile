@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'pry'
+gem 'foundation-rails', '~> 6.1.1.1'
+gem 'slim'
 group :development, :test do
   gem 'byebug'
 end

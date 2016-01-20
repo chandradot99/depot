@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+//= require foundation_and_overrides
+
  */
 
  #banner {
@@ -110,3 +112,8 @@
 	margin: -0.25em 0.1em;
 }
 
+.top-bar{
+  a:visited {
+    color: white;
+  }
+}

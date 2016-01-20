@@ -1,0 +1,16 @@
+- unless cart.line_items.empty?
+
+  h3
+    = t('.title')
+  .callout
+    .row
+      table.large-12.columns
+        = render(cart.line_items)
+        tr.total_line
+          td[colspan="2"]
+            | Total
+          td.total_cell
+            = number_to_currency(cart.total_price)
+    .row
+      = button_to t('.checkout'), new_order_path, method: :get, class: 'large-6 columns success button'
+      = button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-6 columns button'
