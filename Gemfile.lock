@@ -57,6 +57,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     foundation-rails (6.1.1.2)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -145,6 +150,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shoulda-matchers (2.6.2)
+      activesupport (>= 3.0.0)
     slim (2.0.3)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -181,6 +188,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   byebug
   coffee-rails (~> 4.1.0)
+  factory_girl_rails (~> 4.0)
   foundation-rails (~> 6.1.1.1)
   jbuilder (~> 2.0)
   jquery-rails
@@ -191,6 +199,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  shoulda-matchers
   slim
   spring
   turbolinks
