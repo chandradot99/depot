@@ -13,7 +13,7 @@ html
         .top-bar-left
           ul.menu
             li
-              a href="#" Home
+              a href="/" Home
             li 
               a href="#" Questions
             li
@@ -30,11 +30,8 @@ html
                 = link_to "Login", login_path
               li 
                 = link_to "Signup", new_user_path
-    .row
-      .large-3.columns
-        = render @cart
-      .large-9.columns  
-        = yield
+    .column.row 
+      = yield
 
 
 

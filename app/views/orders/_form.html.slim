@@ -10,21 +10,16 @@
         - @order.errors.full_messages.each do |message|
           li
             =raw msg
-  .field
-    = f.label :name, t('.name')
+
+  fieldset.fieldset.large-8.columns.end
+    legend 
+      h4 Enter Details
+    = f.text_field :name, size: 40, placeholder: "Enter Name"
     br
-    = f.text_field :name, size: 40
-  .field
-    = f.label :address, t('.address_html')
+    = f.text_area :address, rows: 3, cols: 40, placeholder: "Enter Address"
     br
-    = f.text_area :address, rows: 3, cols: 40
-  .field
-    = f.label :email, t('.email')
-    br
-    = f.text_field :email, size: 40
-  .field
-    = f.label :pay_type, t('.pay_type')
+    = f.text_field :email, size: 40, placeholder: "Enter Email"
     br
     = f.select :pay_type, Order::PAYMENT_TYPES, prompt: t('.pay_prompt_html')
-  .actions
-    = f.submit t('.submit')
+    br
+    = f.submit "Place Order", class: "small button"

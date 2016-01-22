@@ -1,4 +1,33 @@
-- if notice
-  p#notice
-    = notice
-= render @cart
+- unless @cart.line_items.empty?
+
+  h3
+    | Your Cart
+  
+  .callout
+    .row
+      table.large-12.columns
+        - @cart.line_items.each do |item|
+          tr
+            td
+              = item.quantity
+              | ×
+            td
+              = item.product.title
+            td.item_price
+              = number_to_currency(item.total_price)
+            = form_for item, url: line_item_path(item_id: item.id) do |f|
+              td
+                = f.select :quantity, options_for_select(available_quantity2(item.product_id))
+              td  
+                = f.submit "Change Quantity", class: "tiny button"
+        end
+
+        tr.total_line
+          td[colspan="2"]
+            | Total
+          td.total_cell
+            = number_to_currency(@cart.total_price)
+    
+    .row
+      = button_to "Checkout", new_order_path, method: :get, class: 'large-1 columns radius success button expand'    
+      = button_to "Empty Cart", @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-1 columns end alert button'

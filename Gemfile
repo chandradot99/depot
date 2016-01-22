@@ -16,6 +16,7 @@ gem 'pry'
 gem 'foundation-rails', '~> 6.1.1.1'
 gem 'slim'
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
 end
 

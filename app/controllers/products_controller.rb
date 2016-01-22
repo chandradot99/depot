@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
+  include CurrentCart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_cart
   # GET /products
   # GET /products.json
   def index
@@ -69,7 +70,7 @@ class ProductsController < ApplicationController
       respond_to do |format|
         format.atom
       end
-
+    end
   end
 
   private
@@ -80,6 +81,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
+      params.require(:product).permit(:title, :description, :image_url, :price, :available_quantity)
     end
 end

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  include CurrentCart
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize
+  before_action :set_cart
 
   # GET /users
   # GET /users.json
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully created." }
+        format.html { redirect_to store_path, notice: "User #{@user.name} was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

@@ -12,5 +12,8 @@
           td.total_cell
             = number_to_currency(cart.total_price)
     .row
-      = button_to t('.checkout'), new_order_path, method: :get, class: 'large-6 columns success button'
-      = button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-6 columns button'
+      = button_to "Edit cart", cart_path(cart), method: :get, class: 'large-6 columns button'
+      = button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-6 columns alert button'
+    .row
+      = button_to t('.checkout'), new_order_path, method: :get, class: 'large-12 columns radius success button expand'
+
