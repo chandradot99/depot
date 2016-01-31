@@ -10,7 +10,7 @@
           td[colspan="2"]
             | Total
           td.total_cell
-            = number_to_currency(cart.total_price)
+            = number_to_currency(cart.total_price, unit: "Rs. ")
     .row
       = button_to "Edit cart", cart_path(cart), method: :get, class: 'large-6 columns button'
       = button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'large-6 columns alert button'

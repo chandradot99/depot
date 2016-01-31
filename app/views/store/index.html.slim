@@ -10,14 +10,14 @@
           .callout
             .row
               .large-3.columns
-                = image_tag(product.image_url)
+                = image_tag(product.image_url, style: "width:300px; height:250px;")
               .large-9.columns
                 .column.row
                     h5 = product.title
                 .column.row  
                   = sanitize(product.description)
                 .column.row
-                  = number_to_currency(product.price)
+                  = number_to_currency(product.price, unit: "Rs. ")
                 .row
                   - if product.available_quantity > 0
                     = form_for @line_item, url: line_items_path(product_id: product) do |f|
