@@ -1,7 +1,7 @@
 .row
   .large-3.columns
     = render @cart
-  .large-9.columns
+  div class="#{ @cart.line_items.empty? ? 'large-10 large-offset-1 columns end' : 'large-9 columns' }"
     h3
       = t('.title_html')
     - cache ['store', Product.latest] do
@@ -23,8 +23,8 @@
                     = form_for @line_item, url: line_items_path(product_id: product) do |f|
                       .large-2.columns
                         = f.select :quantity, options_for_select(available_quantity(product.available_quantity))
-                      .large-2.columns
-                        = f.submit "Add to Cart", class: "tiny button"
+                      .large-2.columns.end
+                        = f.submit "Add to Cart", class: "button"
                   - else
                     .large-4.large-centered.columns
                       h5

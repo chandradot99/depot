@@ -7,7 +7,7 @@ html
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application', 'data-turbolinks-track' => false
     = csrf_meta_tags
-  body class="controller.controller_name"
+  body class="#{controller.controller_name}"
     .expanded.row
       .top-bar
         .top-bar-left
