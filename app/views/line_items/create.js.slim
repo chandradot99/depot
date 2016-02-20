@@ -1,1 +1,4 @@
-alert('hello world');
+- if @cart.line_items.any?
+  |
+    $('#cart_box').removeClass('hide');
+    $('#products_list').switchClass('large-10', 'large-9 large-offset-3', 1000, "easeInOutQuad");

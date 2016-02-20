@@ -1,7 +1,7 @@
 .row
-  .large-3.columns
-    = render @cart
-  div class="#{ @cart.line_items.empty? ? 'large-10 large-offset-1 columns end' : 'large-9 columns' }"
+  .large-3.columns#cart_box class="#{@cart.line_items.empty? ? 'hide' : nil}"
+      = render @cart
+  #products_list class="#{ @cart.line_items.empty? ? 'large-10 large-offset-1 columns end' : 'large-9 columns' }"
     h3
       = t('.title_html')
     - cache ['store', Product.latest] do
@@ -20,7 +20,7 @@
                   = number_to_currency(product.price, unit: "Rs. ")
                 .row
                   - if product.available_quantity > 0
-                    = form_for @line_item, url: line_items_path(product_id: product) do |f|
+                    = form_for @line_item, url: line_items_path(product_id: product),remote: true do |f|
                       .large-2.columns
                         = f.select :quantity, options_for_select(available_quantity(product.available_quantity))
                       .large-2.columns.end

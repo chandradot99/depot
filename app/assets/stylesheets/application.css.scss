@@ -118,6 +118,8 @@
 }
 
 .callout {
+  box-shadow: 0 4px 6px 1px rgba(50, 50, 50, 0.14);
+  box-sizing: border-box;
   -webkit-transition: 100ms;
   -moz-transition: 100ms;
   &:hover {
